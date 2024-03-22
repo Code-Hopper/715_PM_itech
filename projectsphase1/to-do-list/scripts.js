@@ -24,10 +24,17 @@ $(document).ready(() => {
         taskObject = {
             name: taskName,
             time: taskTime,
-            details: taskDisc
+            details: taskDisc,
+            taskId: null
         }
 
         console.log(taskObject)
+
+        if(tasks.length < 1){
+            taskObject.taskId = 1
+        }else{
+            taskObject.taskId = tasks.length + 1
+        }
 
         tasks.push(taskObject)
 
@@ -37,30 +44,30 @@ $(document).ready(() => {
 
         $('#display-all-task').append(() => {
             return (
-
-                tasks.map((task) => {
-
-                    return (
-                        `
-                        <div class="card my-3">
-                            <div class="card-header">
-                                <h1 class="card-title">${task.name}</h1>
-                                <button class="btn btn-success">Done <i class="fa-solid fa-check"></i> </button>
-                                <button class="btn btn-danger">Delete <i class="fa-solid fa-trash"></i></button>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">${task.details}</p>
-                                <h4>${task.time}</h3>
-                            </div>
-                        </div>
-                        `
-                    )
-
-                })
-
+            `
+              <div id="card-${taskObject.taskId}" class="card my-3 task">
+                  <div class="card-header">
+                      <h1 class="card-title">${taskObject.name}</h1>
+                      <button onClick="doneTask(${taskObject.taskId})" class="btn btn-success">Done <i class="fa-solid fa-check"></i> </button>
+                      <button onClick="deleteTask(${taskObject.taskId})" class="btn btn-danger">Delete <i class="fa-solid fa-trash"></i></button>
+                  </div>
+                  <div class="card-body">
+                      <p class="card-text">${taskObject.details}</p>
+                      <h4>${taskObject.time}</h3>
+                  </div>
+              </div>
+            `
             )
         })
-
     })
-
 })
+
+function doneTask(taskId) {
+    console.log(taskId)
+    $(`#card-${taskId}`).css("textDecoration", "line-through")
+}
+
+function deleteTask(taskId) {
+    // we will filter the array which contains all the tasks that are maped 
+    $(`#card-${taskId}`).css("display", "none")
+}
