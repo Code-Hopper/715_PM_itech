@@ -30,9 +30,9 @@ $(document).ready(() => {
 
         console.log(taskObject)
 
-        if(tasks.length < 1){
+        if (tasks.length < 1) {
             taskObject.taskId = 1
-        }else{
+        } else {
             taskObject.taskId = tasks.length + 1
         }
 
@@ -44,7 +44,7 @@ $(document).ready(() => {
 
         $('#display-all-task').append(() => {
             return (
-            `
+                `
               <div id="card-${taskObject.taskId}" class="card my-3 task">
                   <div class="card-header">
                       <h1 class="card-title">${taskObject.name}</h1>
@@ -71,3 +71,13 @@ function deleteTask(taskId) {
     // we will filter the array which contains all the tasks that are maped 
     $(`#card-${taskId}`).css("display", "none")
 }
+
+
+$("#appendBtn").click(() => {
+    $("#a1").append(() => {
+        return (
+            "<h1 class='text-light'>This is appended element</h1>"
+        )
+    })
+})
+
