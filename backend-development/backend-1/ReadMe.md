@@ -25,3 +25,14 @@ bcrpty.
 <!-- complete backend is javascript based -->
 
 to install any packages do npm install package-name
+
+create a script using nodemon to start node server 
+npm start
+to use import export statement change type to module in package.json
+
+backend application do follow a certain architecture 
+MVC (model(router, shcema, middlewares), view (UI), z)
+
+first step in achieving MVC is to create a router
+router is used to make user travel using http methods like,
+get, post, put, patch, delete
