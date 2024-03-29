@@ -26,8 +26,21 @@ router.get("/about",(req,res)=>{
 // their are 2 types of exports and imports
 // named(export, import) and default(export, import)
 
+// first step always has to be export
+
 // syntax for default export
 // export default data
 
-export default router
+// export default router
 // a default export can export only one data at a time for a page
+
+// syntax for named export
+// export {data}
+
+let a = 10
+let b = 20
+
+export { router , a , b }
+// a named export can export multiple data at a time.
+
+// each page has only one export statement
