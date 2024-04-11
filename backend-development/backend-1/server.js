@@ -1,4 +1,7 @@
 import express from "express"
+import ejs from "ejs"
+
+// set ejs as our main view engine
 
 // deafult import syntax 
 // import name from "location"
@@ -10,6 +13,12 @@ import {  a , b , router } from "./routers/router.js"
 // import { b } from "./routers/router.js"
 
 let app = express()
+
+// server the static files
+
+app.use(express.static("./public"))
+
+app.set("view engine" , "ejs")
 
 console.log("value of a is " + a)
 console.log("value of b is " + b)

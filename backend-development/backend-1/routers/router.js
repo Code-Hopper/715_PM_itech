@@ -1,11 +1,10 @@
 import express from "express"
 
+import { home , about } from "../controllers/controller.js"
+
 let router = express()
 
-router.get("/",(req,res)=>{
-    console.log("welcome to home page from router.js")
-    res.send("welcome to home page from router.js")
-})
+router.get("/",home)
 
 router.get("/contact",(req,res)=>{
     console.log("welcome to contact page from router.js")
@@ -17,10 +16,7 @@ router.get("/services",(req,res)=>{
     res.send("welcome to services page from router.js")
 })
 
-router.get("/about",(req,res)=>{
-    console.log("welcome to about page from router.js")
-    res.send("welcome to about page from router.js")
-})
+router.get("/about",about)
 
 
 // their are 2 types of exports and imports
