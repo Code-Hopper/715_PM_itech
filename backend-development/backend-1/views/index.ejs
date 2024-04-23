@@ -1,19 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First File</title>
+<%- include("./partials/header.ejs") %>
 
-    <link rel="stylesheet" href="./style.css">
+    <span class="data">
+        <%= data %>
+    </span>
+    <!-- <%= data %> -->
+    <% let a=1000; console.log("this is a "+ a) %>
+    <% let i = 0 %>
+    <% while(i <= 100) { %>
+    <h1><%= i %></h1>
+    <% i++ %>
+    <% } %>
 
-</head>
-<body>
-    <span class="data"><%= data %></span>
     <h1>This is Some First File</h1>
 
-    <img src="./img.jpg" alt="">
-    
-    <script src="./script.js"></script>
-</body>
-</html>
+
+    <img src=" ./img.jpg" alt="">
+
+        <script src="./script.js"></script>
+
+
+<%- include("./partials/footer.ejs") %>

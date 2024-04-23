@@ -1,19 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First File</title>
+<%- include("./partials/header.ejs") %>
 
-    <link rel="stylesheet" href="./style.css">
+    <h1>About Page</h1>
+    <!-- table of students -->
+    <h1>
+        <%= students%>
+    </h1>
 
-</head>
-<body>
+    <!-- craeting a table -->
 
-    <h1>This is About File</h1>
+    <div class="container-fluid">
+        <div class="container">
 
-    <img src="./img.jpg" alt="">
-    
-    <script src="./script.js"></script>
-</body>
-</html>
+            <table class="table">
+                <tr class="table-dark">
+                    <th>Roll</th>
+                    <th>Name</th>
+                    <th>Subjects</th>
+                    <th>Marks</th>
+                    <th>City</th>
+                </tr>
+
+                <!-- we will itrate this row till all object are displayed ! -->
+                <% for(let student of students) { %>
+                    <tr>
+                        <th><%= student.roll %></th>
+                        <th><%= student.name %></th>
+                        <th><%= student.subjects %></th>
+                        <th><%= student.marks %></th>
+                        <th><%= student.city %></th>
+                    </tr>
+                <% } %>
+
+            </table>
+
+        </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
