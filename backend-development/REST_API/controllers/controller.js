@@ -1,30 +1,51 @@
-let home = (req, res) => {
-    console.log("this is home function !")
-    res.status(200).json({ message: "this is home function !", contact: { name: "amey", number: "9766696550" } })
+import { languages } from "../database.js"
+
+let displayAllLanguages = (req, res) => {
+    res.status(200).json({ message: "this are all languages !", languages })
 }
 
-let postHome = (req, res) => {
+let displayRandomLanguage = (req, res) => {
 
-    console.log(req.body)
+    let randomNumber = Math.floor(Math.random() * languages.length + 1)
 
+    // console.log(randomNumber)
+
+    let randomLanguage = languages.filter((element) => {
+        return randomNumber === element.id
+    })
+
+    res.status(200).json({ message: "this are a random language !", randomLanguage })
+}
+
+// parameters (query, path)
+
+// http://localhost:5000/random(endpoint)?query
+
+let filterLanguages = (req, res) => {
+    console.log(req.query)
+
+    let { duration, level, scope } = req.query
+
+    console.log(duration)
+    console.log(level)
+    console.log(scope)
+
+    // filter on the basis of query !
+    // duration, level, scope
     try {
 
-        let { name } = req.body
+        if (duration || level || scope) {
 
-        if (!name) {
-            throw ("name not found in request so we rejected the input from client !")
+            // filter
+
+            res.status(200).json({ message: "this are a filtred languages !" })
+        } else {
+            throw ("invalid query !")
         }
-
-        // what if client din't send the name
-
-        // console.log(req)
-        // console.log(req.body.name)
-        // we can store this data into database or use it for further oprations
-        res.status(202).json({ message: `${req.body.name} your data has been received !` })
     } catch (err) {
         console.log(err)
         res.status(400).json({ message: err })
     }
 }
 
-export { home, postHome }
+export { displayAllLanguages, displayRandomLanguage, filterLanguages }

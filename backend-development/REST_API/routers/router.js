@@ -1,10 +1,11 @@
 import express from "express"
 let router = express()
-import {home,postHome} from "../controllers/controller.js"
+import {displayAllLanguages , displayRandomLanguage , filterLanguages} from "../controllers/controller.js"
 
-router.get("/",home)
-// router.post("/",home)
+router.get("/",displayAllLanguages)
 
-router.post("/",postHome)
+router.get("/random",displayRandomLanguage)
+
+router.get("/filteredLanguages",filterLanguages)
 
 export { router }

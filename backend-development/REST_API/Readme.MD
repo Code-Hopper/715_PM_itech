@@ -20,3 +20,7 @@ json - javascript object notation (format for sending and recieving data in a ap
 <!-- logics 3| client should be able to add a language -->
 
 <!-- rest api, query parameters path parameters , get post put -->
+
+<!-- database | oprations (creating,reading, updating, deleting ) data -->
+
+<!-- CRUD : create, read, update, delete   -->
