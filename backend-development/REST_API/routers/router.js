@@ -1,15 +1,19 @@
 import express from "express"
 let router = express()
-import {displayAllLanguages , displayRandomLanguage , filterLanguages} from "../controllers/controller.js"
+import { displayAllLanguages, displayRandomLanguage, filterLanguages, searchedId } from "../controllers/controller.js"
+import { auth } from "../models/auth.js"
 
-router.get("/",displayAllLanguages)
+router.get("/", displayAllLanguages)
 
-router.get("/random",displayRandomLanguage)
+router.get("/random", displayRandomLanguage)
 
-router.get("/filteredLanguages",filterLanguages)
+router.get("/filteredLanguages", filterLanguages)
 
-router.get("/:somedata",(req,res)=>{
-    console.log(req.params)
-})
+// params are forced to the user to send the data for futher oprations
+
+// query parameter
+// path paramerts or params 
+
+router.get("/:key/:languagename", auth, searchedId)
 
 export { router }

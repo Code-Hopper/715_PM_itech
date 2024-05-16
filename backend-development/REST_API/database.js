@@ -1,7 +1,7 @@
 let languages = [
     {
         id: 1,
-        name: "JavaScript",
+        name: "javascript",
         duration: "6",
         scope: ["web development", "mobile development", "desktop development"],
         level: "hard",
@@ -9,7 +9,7 @@ let languages = [
     },
     {
         id: 2,
-        name: "C++",
+        name: "c++",
         duration: "3",
         scope: ["desktop development"],
         level: "easy",
@@ -17,7 +17,7 @@ let languages = [
     },
     {
         id: 3,
-        name: "Python",
+        name: "python",
         duration: "6",
         scope: ["web development", "mobile development", "desktop development"],
         level: "easy",
@@ -25,7 +25,7 @@ let languages = [
     },
     {
         id: 4,
-        name: "C",
+        name: "c",
         duration: "3",
         scope: ["desktop development"],
         level: "hard",
@@ -33,7 +33,7 @@ let languages = [
     },
     {
         id: 5,
-        name: "C#",
+        name: "c#",
         duration: "6",
         scope: ["Game development"],
         level: "very hard",
@@ -41,7 +41,7 @@ let languages = [
     },
     {
         id: 6,
-        name: "Andriod",
+        name: "andriod",
         duration: "3",
         scope: ["mobile development"],
         level: "easy",
@@ -49,7 +49,7 @@ let languages = [
     },
     {
         id: 7,
-        name: "Flutter",
+        name: "flutter",
         duration: "6",
         scope: ["mobile development"],
         level: "very hard",
@@ -57,7 +57,7 @@ let languages = [
     },
     {
         id: 8,
-        name: "Java",
+        name: "java",
         duration: "3",
         scope: ["web development", "mobile development", "desktop development"],
         level: "very hard",

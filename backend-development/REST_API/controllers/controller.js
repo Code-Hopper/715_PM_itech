@@ -40,7 +40,7 @@ let filterLanguages = (req, res) => {
 
             if (duration && scope && level) {
                 console.log("All filter")
-                let result = allFilter(duration,scope,level)
+                let result = allFilter(duration, scope, level)
                 res.status(200).json({ message: "search results based on duration", result })
             } else if (duration && !scope && !level) {
                 console.log("only duration")
@@ -96,14 +96,44 @@ function durationFilter(duration) {
 //     return element.duration == duration && element.scope == scope
 // })
 
-
 // // duration , level and scope 
-function allFilter{
+function allFilter() {
     let DurationAndLevelAndScopeFilter = languages.filter((element) => {
         return element.duration == duration && element.level == level && element.scope == scope
     })
     return DurationAndLevelAndScopeFilter
 }
 
+let searchedId = async (req, res) => {
 
-export { displayAllLanguages, displayRandomLanguage, filterLanguages }
+    console.log(req.params.auth)
+
+    if (req.params.auth) {
+
+        // console.log(req.params)
+        let languagename = req.params.languagename.toLowerCase()
+
+        let response = languages.filter((language) => {
+            if (language.name === languagename) {
+                return language
+            } else {
+                return false
+            }
+        })
+
+        console.log(response)
+
+        if (response.length != 0) {
+            res.status(200).json({ response })
+        } else {
+            console.log("language not found !")
+            res.status(200).json({ message: "language not present in database !" })
+        }
+
+    }else{
+        res.status(200).json({ message: "Auth Failed !" })
+    }
+}
+
+
+export { displayAllLanguages, displayRandomLanguage, filterLanguages, searchedId }
