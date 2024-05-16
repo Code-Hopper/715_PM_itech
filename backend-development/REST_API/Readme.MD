@@ -5,7 +5,6 @@ REST_APi - Representational State Transfer API HTTPS
 
 json - javascript object notation (format for sending and recieving data in a api server !)
 
-
 <!-- HTTPs status codes -->
 <!-- 100 - 199 informational -->
 <!-- 200 - 299 success -->

@@ -8,4 +8,8 @@ router.get("/random",displayRandomLanguage)
 
 router.get("/filteredLanguages",filterLanguages)
 
+router.get("/:somedata",(req,res)=>{
+    console.log(req.params)
+})
+
 export { router }

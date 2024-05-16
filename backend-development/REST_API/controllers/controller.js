@@ -21,6 +21,8 @@ let displayRandomLanguage = (req, res) => {
 
 // http://localhost:5000/random(endpoint)?query
 
+// http://localhost:5000/:variable/
+
 let filterLanguages = (req, res) => {
     console.log(req.query)
 
@@ -36,9 +38,19 @@ let filterLanguages = (req, res) => {
 
         if (duration || level || scope) {
 
-            // filter
+            if (duration && scope && level) {
+                console.log("All filter")
+                let result = allFilter(duration,scope,level)
+                res.status(200).json({ message: "search results based on duration", result })
+            } else if (duration && !scope && !level) {
+                console.log("only duration")
+                let result = durationFilter(duration)
+                res.status(200).json({ message: "search results based on duration", result })
+            } else if (!duration && scope && !level) {
 
-            res.status(200).json({ message: "this are a filtred languages !" })
+            }
+
+            // res.status(200).json({ message: "this are a filtred languages !" })
         } else {
             throw ("invalid query !")
         }
@@ -47,5 +59,51 @@ let filterLanguages = (req, res) => {
         res.status(400).json({ message: err })
     }
 }
+
+
+// filter
+
+// only duration
+function durationFilter(duration) {
+    let filterData = languages.filter((element) => {
+        return element.duration == duration
+    })
+
+    return filterData
+}
+
+// // only level
+// let OnlyLevelFilter = languages.filter((element) => {
+//     return element.level == level
+// })
+// // only scope
+// let OnlyScopeFilter = languages.filter((element) => {
+//     return element.scope == scope
+// })
+
+// // duration and level
+// let DurationAndLevelFilter = languages.filter((element) => {
+//     return element.duration == duration && element.level == level
+// })
+
+// // level and scope
+// let LevelAndScopeFilter = languages.filter((element) => {
+//     return element.scope == scope && element.level == level
+// })
+
+// // duration and scope
+// let DurationAndScopeFilter = languages.filter((element) => {
+//     return element.duration == duration && element.scope == scope
+// })
+
+
+// // duration , level and scope 
+function allFilter{
+    let DurationAndLevelAndScopeFilter = languages.filter((element) => {
+        return element.duration == duration && element.level == level && element.scope == scope
+    })
+    return DurationAndLevelAndScopeFilter
+}
+
 
 export { displayAllLanguages, displayRandomLanguage, filterLanguages }
